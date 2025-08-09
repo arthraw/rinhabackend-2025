@@ -18,10 +18,14 @@ public class PaymentService :  IPaymentService
     
     public async Task<PaymentResponse> createPayment(PaymentDto paymentDto)
     {
+        var payment = new PaymentDto()
+        {
+            correlationId = Guid.NewGuid().ToString(),
+            amount = paymentDto.amount,
+            date = DateTime.Now,
+        };
         
-        
-        
-        var result = await _http.PostAsJsonAsync(_paymentUrl, paymentDto);
+        var result = await _http.PostAsJsonAsync(_paymentUrl, payment);
         var response = await result.Content.ReadFromJsonAsync<PaymentResponse>();
         return response ?? throw new Exception("Payment response null");
     }
