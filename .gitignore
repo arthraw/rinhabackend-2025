@@ -2,8 +2,6 @@
 .env
 *.env
 /.env
-/cadastro_prestador.Tests/.env
-/cadastro_prestador/.env
 
 # Ignore binários e builds
 bin/
