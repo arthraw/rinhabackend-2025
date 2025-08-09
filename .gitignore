@@ -63,3 +63,14 @@ secrets.json
 # Ignorar pastas geradas por publicação
 publish/
 out/
+
+bin/
+obj/
+**/bin/
+**/obj/
+*.user
+*.rsuser
+*.suo
+*.cache
+*.pdb
+*.log

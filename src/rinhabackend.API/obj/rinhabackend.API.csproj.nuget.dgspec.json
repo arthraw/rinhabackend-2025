@@ -1,36 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.API\\rinhabackend.API.csproj": {}
+    "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.API\\rinhabackend.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.API\\rinhabackend.API.csproj": {
+    "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.API\\rinhabackend.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.API\\rinhabackend.API.csproj",
+        "projectUniqueName": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.API\\rinhabackend.API.csproj",
         "projectName": "rinhabackend.API",
-        "projectPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.API\\rinhabackend.API.csproj",
-        "packagesPath": "C:\\Users\\01\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.API\\obj\\",
+        "projectPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.API\\rinhabackend.API.csproj",
+        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\01\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj": {
-                "projectPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj"
+              "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj": {
+                "projectPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj"
               },
-              "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Infrastructure\\rinhabackend.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Infrastructure\\rinhabackend.Infrastructure.csproj"
+              "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Infrastructure\\rinhabackend.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Infrastructure\\rinhabackend.Infrastructure.csproj"
               }
             }
           }
@@ -48,12 +48,12 @@
         "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
+            "StackExchange.Redis": {
               "target": "Package",
-              "version": "[9.0.7, )"
+              "version": "[2.8.58, )"
             }
           },
           "imports": [
@@ -67,6 +67,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.19, 8.0.19]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -75,34 +93,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\arthu\\.dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj": {
+    "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj",
+        "projectUniqueName": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj",
         "projectName": "rinhabackend.Application",
-        "projectPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj",
-        "packagesPath": "C:\\Users\\01\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Application\\obj\\",
+        "projectPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj",
+        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\01\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj": {
-                "projectPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj"
+              "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj": {
+                "projectPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj"
               }
             }
           }
@@ -120,8 +138,22 @@
         "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -133,36 +165,50 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\arthu\\.dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj": {
+    "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj",
         "projectName": "rinhabackend.Domain",
-        "projectPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj",
-        "packagesPath": "C:\\Users\\01\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Domain\\obj\\",
+        "projectPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj",
+        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\01\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -179,8 +225,8 @@
         "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
             "net461",
             "net462",
@@ -192,42 +238,56 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\arthu\\.dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Infrastructure\\rinhabackend.Infrastructure.csproj": {
+    "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Infrastructure\\rinhabackend.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Infrastructure\\rinhabackend.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Infrastructure\\rinhabackend.Infrastructure.csproj",
         "projectName": "rinhabackend.Infrastructure",
-        "projectPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Infrastructure\\rinhabackend.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\01\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Infrastructure\\rinhabackend.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\01\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj": {
-                "projectPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj"
+              "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj": {
+                "projectPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Application\\rinhabackend.Application.csproj"
               },
-              "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj": {
-                "projectPath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj"
+              "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj": {
+                "projectPath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj"
               }
             }
           }
@@ -245,8 +305,14 @@
         "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.8.58, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -258,12 +324,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.19, 8.0.19]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\arthu\\.dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
