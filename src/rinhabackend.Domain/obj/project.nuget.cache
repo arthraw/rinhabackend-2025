@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2rKaFnzMKBU=",
+  "dgSpecHash": "2WsqXO3vyxg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\arthu\\Documents\\vscode-projetos\\rinha-2025\\rinhabackend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\arthu\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.19\\microsoft.netcore.app.ref.8.0.19.nupkg.sha512",
-    "C:\\Users\\arthu\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.19\\microsoft.windowsdesktop.app.ref.8.0.19.nupkg.sha512",
-    "C:\\Users\\arthu\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.19\\microsoft.aspnetcore.app.ref.8.0.19.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.Domain\\rinhabackend.Domain.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
