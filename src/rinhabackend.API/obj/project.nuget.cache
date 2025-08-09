@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "6+wdGOnJyQs=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\01\\Documents\\projetos\\rinhabackend-2025\\rinha-de-backend-2025\\src\\rinhabackend.API\\rinhabackend.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\01\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.7\\microsoft.aspnetcore.openapi.9.0.7.nupkg.sha512",
+    "C:\\Users\\01\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
