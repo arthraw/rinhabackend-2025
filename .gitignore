@@ -6,6 +6,8 @@
 # Ignore binários e builds
 bin/
 obj/
+**/bin/
+**/obj/
 
 # User-specific files
 *.user
