@@ -1,0 +1,65 @@
+# Ignore arquivos de ambiente
+.env
+*.env
+/.env
+/cadastro_prestador.Tests/.env
+/cadastro_prestador/.env
+
+# Ignore binários e builds
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Backup & VS Code
+*.bak
+*.log
+.vscode/
+*.swp
+*.tmp
+
+# Logs
+*.log
+logs/
+*.tlog
+
+# Diretórios de testes
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# pacotes NuGet restaurados localmente
+*.nupkg
+packages/
+*.snupkg
+
+# Arquivos de lock do NuGet e restore
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Arquivos temporários do VS
+_ReSharper*/
+*.DotSettings.user
+.vs/
+.idea/
+
+# Arquivos do Rider
+*.sln.iml
+
+# Arquivos do Docker
+*.pid
+
+# Ignorar configurações específicas de build
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# Ignorar pastas geradas por publicação
+publish/
+out/
