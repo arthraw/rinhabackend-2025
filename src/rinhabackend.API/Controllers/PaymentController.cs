@@ -1,39 +1,52 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text.Json;
+using Microsoft.AspNetCore.Mvc;
 using rinhabackend.Application.DTOs;
+using rinhabackend.Application.Interfaces;
 using rinhabackend.Application.Service;
+using rinhabackend.Infrastructure.Repository;
 
 namespace rinhabackend.API.Controllers;
 
 [ApiController]
-[Route("[controller]")] // favor verificar se essa eh a rota msm valeu?
+[Route("payments")]
 public class PaymentController : ControllerBase
 {
+    private readonly IRedisRepository _redisRepository;
     
-    private readonly PaymentService _service;
-
-    public PaymentController(PaymentService service)
+    public PaymentController(IRedisRepository redisRepository)
     {
-        _service = service;
+        _redisRepository = redisRepository;
     }
 
+    [HttpGet]
+    public async Task<IActionResult> Get() => Ok("API funcionando");
+
     [HttpPost]
-    public IActionResult PostPayment([FromBody] PaymentDto payment)
+    public async Task<IActionResult> PostPayment([FromBody] PaymentRequestDto payment)
     {
         if (payment.amount <= 0)
         {
-            return BadRequest(
-                new { message = payment }
-            );
+            return BadRequest(new { message = "Valor inválido" });
         }
-
+    
         try
         {
-            var response = _service.createPayment(payment);
-            return Ok(response);
+            var jsonMessage = JsonSerializer.Serialize(payment);
+    
+            await _redisRepository.Enqueue(jsonMessage);
+            return Accepted(new { message = "Pagamento recebido" });
         }
         catch (Exception e)
         {
-            return BadRequest(e.Message);
+            return StatusCode(500, new { message = $"Erro ao enfileirar: {e.Message}" });
         }
     }
+
+    [HttpPost("teste")]
+    public async Task<IActionResult> PostTeste()
+    {
+        return Ok("teste");
+    }
+
+
 }

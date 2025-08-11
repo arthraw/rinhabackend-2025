@@ -4,29 +4,31 @@ using rinhabackend.Application.Interfaces;
 
 namespace rinhabackend.Application.Service;
 
-public class PaymentService :  IPaymentService
+public class PaymentService : IPaymentService
 {
-    private readonly HttpClient _http;
+    private readonly HttpClient _defaultClient;
+    private readonly HttpClient _fallbackClient;
 
-    private readonly string _paymentUrl;
-
-    public PaymentService(HttpClient http)
+    public PaymentService(IPaymentHttpClientFactory factory)
     {
-        _paymentUrl = "http://localhost:8001/payments";
-        this._http = http;
+        _defaultClient = factory.CreateDefaultClient();
+        _fallbackClient = factory.CreateFallbackClient();
     }
-    
-    public async Task<PaymentResponse> createPayment(PaymentDto paymentDto)
+
+    public async Task<PaymentResponse> CreatePayment(PaymentRequestDto paymentDto, string url)
     {
-        var payment = new PaymentDto()
+        var client = url.Contains("payment-processor-1") ? _defaultClient : _fallbackClient;
+
+        var payment = new PaymentDto
         {
             correlationId = Guid.NewGuid().ToString(),
             amount = paymentDto.amount,
-            date = DateTime.Now,
+            date = DateTime.Now
         };
-        
-        var result = await _http.PostAsJsonAsync(_paymentUrl, payment);
+
+        var result = await client.PostAsJsonAsync(url, payment);
         var response = await result.Content.ReadFromJsonAsync<PaymentResponse>();
+
         return response ?? throw new Exception("Payment response null");
     }
 }
