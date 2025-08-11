@@ -1,38 +1,91 @@
 ﻿version: '3.8'
 
 services:
-  backend-1:
-    image: arthurandrade1/rinhabackend
-    container_name: back1
+  api1:
+    #    image: arthurandrade1/rinhabackend
+    build:
+      context: .
+      dockerfile: ./src/rinhabackend.API/Dockerfile
+    container_name: api1
     ports:
-      - "8080"
+      - "9999:8080"
     depends_on:
       - redis
     environment:
       - REDIS_CONNECTION=redis:6379,abortConnect=false
+      - ASPNETCORE_URLS=http://+:8080
     networks:
       - backend
       - payment-processor
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 100M
+        reservations:
+          cpus: '0.3'
+          memory: 80M
 
-  backend-2:
-    image: arthurandrade1/rinhabackend
-    container_name: back2
+  api2:
+    build:
+      context: .
+      dockerfile: ./src/rinhabackend.API/Dockerfile
+    container_name: api2
     ports:
-      - "8080"
+      - "8082:8080" # ver porta certa q tem q rodar
     depends_on:
       - redis
     environment:
-      - Redis__ConnectionString=redis:6379
+      - REDIS_CONNECTION=redis:6379,abortConnect=false
+      - ASPNETCORE_URLS=http://+:8080
     networks:
       - backend
       - payment-processor
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 100M
+        reservations:
+          cpus: '0.3'
+          memory: 80M
 
   redis:
     image: redis:7.2-alpine
-    ports:
-      - "6379:6379"
+    container_name: redis
     networks:
       - backend
+      - payment-processor
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 80M
+        reservations:
+          cpus: '0.1'
+          memory: 60M
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-loadbalancer
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    networks:
+      - backend
+      - payment-processor
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 50M
+        reservations:
+          cpus: '0.1'
+          memory: 40M
 
 networks:
   backend:
@@ -40,4 +93,4 @@ networks:
   payment-processor:
     name: payment-processor
     driver: bridge
-    external: true                
+    external: true

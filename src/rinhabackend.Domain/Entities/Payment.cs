@@ -1,4 +1,4 @@
-﻿namespace rinhabackend.Application.Domain;
+﻿namespace rinhabackend.Application.Dtos;
 
 public record Payment
 {

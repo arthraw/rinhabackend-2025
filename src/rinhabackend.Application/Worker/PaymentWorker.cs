@@ -14,15 +14,16 @@ public class PaymentWorker : BackgroundService
     private readonly IRedisRepository _redisRepository;
     private readonly IPaymentService _paymentService;
     private readonly ILogger<PaymentWorker> _logger;
-
+    private readonly IHealthCheckerService _healthCheckerService;
     public PaymentWorker(
         IRedisRepository redisRepository,
         IPaymentService paymentService,
-        ILogger<PaymentWorker> logger)
+        ILogger<PaymentWorker> logger, IHealthCheckerService healthCheckerService)
     {
         _redisRepository = redisRepository;
         _paymentService = paymentService;
         _logger = logger;
+        _healthCheckerService = healthCheckerService;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -33,16 +34,35 @@ public class PaymentWorker : BackgroundService
         {
             try
             {
-                var message = _redisRepository.Dequeue();
+                var message = await _redisRepository.Dequeue();
 
                 if (message != null)
                 {
-                    var payment = JsonSerializer.Deserialize<PaymentDto>(message);
-
+                    var payment = JsonSerializer.Deserialize<PaymentRequestDto>(message);
+                    _logger.LogInformation($"Pagamento: {payment}");
+                    
                     if (payment != null)
                     {
                         _logger.LogInformation($"Processando pagamento: {payment.amount}");
-                        await _paymentService.createPayment(payment);
+
+                        string url;
+                        do
+                        {
+                            url = await _healthCheckerService.CheckHealthProcessor();
+
+                            if (url == "Not healthy")
+                            {
+                                _logger.LogWarning("Nenhum proce    ssador disponível. Aguardando 5 segundos para tentar novamente...");
+                                await Task.Delay(5000, stoppingToken);
+                            }
+
+                        } while (url == "Not healthy" && !stoppingToken.IsCancellationRequested);
+
+                        if (!stoppingToken.IsCancellationRequested)
+                        {
+                            _logger.LogInformation($"Processador utilizado: {url}");
+                            await _paymentService.CreatePayment(payment, url);
+                        }
                     }
                 }
                 else
@@ -59,4 +79,5 @@ public class PaymentWorker : BackgroundService
 
         _logger.LogInformation("Worker de pagamentos finalizado.");
     }
+
 }

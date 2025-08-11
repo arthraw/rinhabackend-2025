@@ -4,5 +4,5 @@ namespace rinhabackend.Application.Interfaces;
 
 public interface IPaymentService
 {
-    Task<PaymentResponse> createPayment(PaymentDto paymentDto);
+    Task<PaymentResponse> CreatePayment(PaymentRequestDto paymentDto, string url);
 }

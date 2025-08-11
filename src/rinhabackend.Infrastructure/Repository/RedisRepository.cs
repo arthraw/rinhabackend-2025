@@ -5,33 +5,34 @@ namespace rinhabackend.Infrastructure.Repository;
 
 public class RedisRepository : IRedisRepository
 {
-    private readonly IDatabase _db;
-    private readonly string _queueKey;
+ 
+    private readonly IConnectionMultiplexer _redis;
+    private const string QueueKey = "paymentQueue";
 
-    public RedisRepository(IConnectionMultiplexer redis, string queueKey)
+
+    public RedisRepository(IConnectionMultiplexer redis)
     {
-        _db = redis.GetDatabase();
-        _queueKey = queueKey;
+        _redis = redis;
+    }
+    
+    public async Task Enqueue(string message)
+    {
+        await _redis.GetDatabase().ListRightPushAsync(QueueKey, message);
     }
 
-    public void Enqueue(string message)
+    public async Task<string?> Dequeue()
     {
-        _db.ListRightPush(_queueKey, message);
-    }
-
-    public string? Dequeue()
-    {
-        var result = _db.ListLeftPop(_queueKey);
+        var result = await _redis.GetDatabase().ListLeftPopAsync(QueueKey);
         return result.HasValue ? result.ToString() : null;
     }
 
     public string? DequeueBlocking(int timeoutSeconds = 5)
     {
-        var result = _db.ListLeftPop(_queueKey);
+        var result = _redis.GetDatabase().ListLeftPop(QueueKey);
         if (result.HasValue)
             return result.ToString();
 
-        var blpopResult = _db.ListLeftPop(_queueKey);
+        var blpopResult = _redis.GetDatabase().ListLeftPop(QueueKey);
         return blpopResult.HasValue ? blpopResult.ToString() : null;
     }    
     
