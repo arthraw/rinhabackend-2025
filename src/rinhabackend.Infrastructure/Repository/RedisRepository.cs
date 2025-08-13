@@ -1,4 +1,7 @@
-﻿using rinhabackend.Application.Interfaces;
+﻿using System.Text.Json;
+using rinhabackend.Application.Dtos;
+using rinhabackend.Application.DTOs;
+using rinhabackend.Application.Interfaces;
 using StackExchange.Redis;
 
 namespace rinhabackend.Infrastructure.Repository;
@@ -34,7 +37,7 @@ public class RedisRepository : IRedisRepository
 
         var blpopResult = _redis.GetDatabase().ListLeftPop(QueueKey);
         return blpopResult.HasValue ? blpopResult.ToString() : null;
-    }    
+    }
     
     
 }

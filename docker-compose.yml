@@ -7,13 +7,13 @@ services:
       context: .
       dockerfile: ./src/rinhabackend.API/Dockerfile
     container_name: api1
-    ports:
-      - "9999:8080"
+#    ports:
+#      - "9999:9999"
     depends_on:
       - redis
     environment:
       - REDIS_CONNECTION=redis:6379,abortConnect=false
-      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_URLS=http://+:9999
     networks:
       - backend
       - payment-processor
@@ -31,13 +31,13 @@ services:
       context: .
       dockerfile: ./src/rinhabackend.API/Dockerfile
     container_name: api2
-    ports:
-      - "8082:8080" # ver porta certa q tem q rodar
+#    ports:
+#      - "9998:9999"   # ver se ta certo
     depends_on:
       - redis
     environment:
       - REDIS_CONNECTION=redis:6379,abortConnect=false
-      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_URLS=http://+:9999
     networks:
       - backend
       - payment-processor
@@ -69,7 +69,7 @@ services:
     image: nginx:latest
     container_name: nginx-loadbalancer
     ports:
-      - "8080:80"
+      - "9999:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:

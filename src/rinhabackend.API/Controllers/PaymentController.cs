@@ -18,8 +18,6 @@ public class PaymentController : ControllerBase
         _redisRepository = redisRepository;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Get() => Ok("API funcionando");
 
     [HttpPost]
     public async Task<IActionResult> PostPayment([FromBody] PaymentRequestDto payment)
@@ -41,12 +39,5 @@ public class PaymentController : ControllerBase
             return StatusCode(500, new { message = $"Erro ao enfileirar: {e.Message}" });
         }
     }
-
-    [HttpPost("teste")]
-    public async Task<IActionResult> PostTeste()
-    {
-        return Ok("teste");
-    }
-
 
 }
