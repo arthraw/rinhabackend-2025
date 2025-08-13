@@ -1,11 +1,9 @@
-﻿using System.ComponentModel;
-using System.Text.Json;
+﻿using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using rinhabackend.Application.DTOs;
 using rinhabackend.Application.Interfaces;
 using Microsoft.Extensions.Hosting;
-using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace rinhabackend.Application.Worker;
 
@@ -18,7 +16,9 @@ public class PaymentWorker : BackgroundService
     public PaymentWorker(
         IRedisRepository redisRepository,
         IPaymentService paymentService,
-        ILogger<PaymentWorker> logger, IHealthCheckerService healthCheckerService)
+        ILogger<PaymentWorker> logger, 
+        IHealthCheckerService healthCheckerService
+    )
     {
         _redisRepository = redisRepository;
         _paymentService = paymentService;
@@ -45,23 +45,23 @@ public class PaymentWorker : BackgroundService
                     {
                         _logger.LogInformation($"Processando pagamento: {payment.amount}");
 
-                        string url;
+                        string processorName;
                         do
                         {
-                            url = await _healthCheckerService.CheckHealthProcessor();
+                            processorName = await _healthCheckerService.CheckHealthProcessor();
 
-                            if (url == "Not healthy")
+                            if (processorName == "Not healthy")
                             {
-                                _logger.LogWarning("Nenhum proce    ssador disponível. Aguardando 5 segundos para tentar novamente...");
+                                _logger.LogWarning("Nenhum processador disponível. Aguardando 5 segundos para tentar novamente...");
                                 await Task.Delay(5000, stoppingToken);
                             }
 
-                        } while (url == "Not healthy" && !stoppingToken.IsCancellationRequested);
+                        } while (processorName == "Not healthy" && !stoppingToken.IsCancellationRequested);
 
                         if (!stoppingToken.IsCancellationRequested)
                         {
-                            _logger.LogInformation($"Processador utilizado: {url}");
-                            await _paymentService.CreatePayment(payment, url);
+                            _logger.LogInformation($"Processador utilizado: {processorName}");
+                            await _paymentService.CreatePayment(payment, processorName);
                         }
                     }
                 }

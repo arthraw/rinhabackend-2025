@@ -12,7 +12,7 @@ var redisConnectionString = builder.Configuration.GetValue<string>("REDIS_CONNEC
 
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(8080);
+    options.ListenAnyIP(9999);
 });
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
@@ -23,18 +23,21 @@ builder.Services.AddHostedService<PaymentWorker>();
 builder.Services.AddControllers();
 builder.Services.AddHttpClient("DefaultPayments", client =>
 {
-    client.BaseAddress = new Uri("http://api1:8080/");
+    client.BaseAddress = new Uri("http://payment-processor-1:8080/");
 });
 
 builder.Services.AddHttpClient("FallbackPayments", client =>
 {
-    client.BaseAddress = new Uri("http://api2:8080/");
+    client.BaseAddress = new Uri("http://payment-processor-2:8080/");
 });
 
 builder.Services.AddSingleton<IPaymentHttpClientFactory, PaymentHttpClientFactory>();
+builder.Services.AddSingleton<IPaymentSummaryService, PaymentSummaryService>();
 builder.Services.AddScoped<IRedisRepository, RedisRepository>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IPaymentSummaryService, PaymentSummaryService>();
 builder.Services.AddScoped<IHealthCheckerService, HealthCheckerService>();
+builder.Services.AddScoped<IPaymentStatsRepository, PaymentStatsRepository>();
 
 var app = builder.Build();
 

@@ -31,17 +31,18 @@ public class HealthCheckerService : IHealthCheckerService
     public async Task<string> CheckHealthProcessor()
     {
         if (await IsHealthy(ProcessorDefault))
-            return ProcessorDefault;
+            return "payment-processor-1";
 
         await Task.Delay(TimeSpan.FromSeconds(5));
         if (await IsHealthy(ProcessorDefault))
-            return ProcessorDefault;
+            return "payment-processor-1";
 
         if (await IsHealthy(ProcessorFallback))
-            return ProcessorFallback;
+            return "payment-processor-2";
 
         return "Not healthy";
     }
+
 
 
     private async Task<bool> IsHealthy(string url)
